@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick=showPitcure()>Show Pitcure</button>
+    <div id="feed"></div>
+    <script>
+        function showPitcure() 
+        {
+            let xhr = new XMLHttpRequest()
+
+            xhr.open('GET', 'https://picsum.photos/200/300?grayscale', true)
+
+            xhr.onload = function() {
+                const feed = document.getElementById('feed')
+                const image = document.createElement('img')
+                image.src = this.responseURL
+                feed.appendChild(image)
+            }
+
+            xhr.send()
+        }
+    </script>
+</body>
+
+</html>
